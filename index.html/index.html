@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Вікторія</title>
+<title>Victoria Litovska | Front-End Developer</title>
 
 <style>
   * {
@@ -21,7 +21,7 @@
     position: relative;
   }
 
-  /* ЖИВИЙ ГРАДІЄНТ */
+  /* LIVE GRADIENT */
   body::before {
     content: "";
     position: fixed;
@@ -47,7 +47,7 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* легка текстура */
+  /* Light noise texture */
   body::after {
     content: "";
     position: fixed;
@@ -57,7 +57,7 @@
     z-index: -1;
   }
 
-  /* динамічний спотлайт теплий */
+  /* Dynamic warm spotlight */
   .spotlight {
     position: fixed;
     width: 70vmax;
@@ -86,7 +86,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 28px;
+    padding: 10px 24px;
     z-index: 100;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(255, 240, 245, 0.7);
     border: 1px solid rgba(255, 235, 240, 0.6);
@@ -100,6 +100,12 @@
     -webkit-background-clip: text;
     color: transparent;
     letter-spacing: -0.3px;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
   }
 
   nav {
@@ -119,6 +125,70 @@
   nav a:hover {
     color: #aa7ebf;
     border-bottom-color: #d9b4d1;
+  }
+
+  /* LANGUAGE DROPDOWN */
+  .lang-switcher {
+    position: relative;
+    display: inline-block;
+  }
+
+  .lang-btn {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(221, 190, 230, 0.6);
+    color: #5a4a6e;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+
+  .lang-btn:hover {
+    background: white;
+    border-color: #cbabd9;
+    color: #aa7ebf;
+  }
+
+  .lang-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    background: rgba(255, 250, 254, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 200, 232, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(110, 70, 130, 0.1);
+    min-width: 120px;
+    overflow: hidden;
+    z-index: 110;
+  }
+
+  .lang-dropdown.open {
+    display: block;
+  }
+
+  .lang-option {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    color: #5a4a6e;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .lang-option:hover {
+    background: #f5eefe;
+    color: #8a5ba4;
   }
 
   /* HERO */
@@ -247,7 +317,8 @@
 
   .hero-buttons {
     display: flex;
-    gap: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-top: 20px;
   }
 
@@ -255,30 +326,43 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #9370b3;
-    color: white;
-    padding: 10px 24px;
+    padding: 10px 22px;
     border-radius: 40px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 550;
     transition: 0.25s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 0.92rem;
   }
 
-  .hero-buttons a:first-child {
+  /* Кнопка Resume */
+  .hero-buttons a.btn-cv {
+    background: #fff0f6;
+    color: #b54f8e;
+    border: 1px solid #f2cfdf;
+  }
+  
+  .hero-buttons a.btn-cv:hover {
+    background: #ffe5f0;
+    transform: translateY(-3px);
+  }
+
+  /* Кнопка GitHub */
+  .hero-buttons a:nth-child(2) {
     background: #ffffffd9;
     color: #7b519b;
     border: 1px solid #e2cdee;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
   }
 
-  .hero-buttons a:first-child:hover {
+  .hero-buttons a:nth-child(2):hover {
     background: white;
     transform: translateY(-3px);
   }
 
+  /* Кнопка View Projects */
   .hero-buttons a:last-child {
     background: #a474b9;
+    color: white;
   }
 
   .hero-buttons a:last-child:hover {
@@ -322,7 +406,7 @@
     box-shadow: 0 18px 32px rgba(98, 70, 116, 0.14);
   }
 
-  /* загальні секції */
+  /* GENERAL SECTIONS */
   section {
     max-width: 1100px;
     margin: 0 auto;
@@ -453,7 +537,7 @@
     line-height: 1.5;
   }
 
-  /* навички */
+  /* SKILLS */
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
@@ -482,8 +566,8 @@
 
   .focus-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
     margin-top: 28px;
   }
 
@@ -491,23 +575,24 @@
     background: rgba(255, 255, 255, 0.76);
     border: 1px solid rgba(226, 200, 232, 0.78);
     border-radius: 30px;
-    padding: 22px;
+    padding: 24px;
     box-shadow: 0 14px 26px rgba(89, 60, 110, 0.06);
   }
 
   .focus-card h3 {
     color: #7e55a0;
-    font-size: 1rem;
-    margin-bottom: 8px;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    font-weight: 600;
   }
 
   .focus-card p {
     color: #665176;
-    font-size: 0.9rem;
-    line-height: 1.48;
+    font-size: 0.92rem;
+    line-height: 1.5;
   }
 
-  /* НОВА КАРУСЕЛЬ ІЗ СКРІНШОТАМИ */
+  /* CAROUSEL & CARDS */
   .carousel {
     display: flex;
     overflow-x: auto;
@@ -557,7 +642,6 @@
     box-shadow: 0 28px 38px -15px rgba(130, 80, 150, 0.25);
   }
 
-  /* скріншот (зображення) */
   .project-screenshot {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -642,7 +726,7 @@
     font-weight: 700;
   }
 
-  /* контакти */
+  /* CONTACT */
   .contact-block {
     background: #f8eff9b3;
     backdrop-filter: blur(8px);
@@ -685,7 +769,7 @@
     color: #9c6ebd;
   }
 
-  /* fade анімація */
+  /* Fade animation */
   .fade {
     opacity: 0;
     transform: translateY(32px);
@@ -697,19 +781,24 @@
     transform: translateY(0);
   }
 
-  /* адаптив */
+  /* RESPONSIVE */
   @media (max-width: 780px) {
     .hero {
       padding-top: 150px;
     }
     header {
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
       border-radius: 28px;
-      padding: 12px 18px;
+      padding: 14px 18px;
     }
     header h1 {
       font-size: 1.45rem;
+    }
+    .nav-container {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
     }
     nav {
       flex-wrap: wrap;
@@ -797,221 +886,257 @@
 <div class="spotlight" id="spotlight"></div>
 
 <header>
-  <h1>💜 Віка</h1>
-  <nav>
-    <a href="#about">Про мене</a>
-    <a href="#skills">Навички</a>
-    <a href="#projects">Проєкти</a>
-    <a href="#contact">Контакти</a>
-  </nav>
+  <h1>💜 Vika</h1>
+  <div class="nav-container">
+    <nav>
+      <a href="#about" data-key="nav-about">About</a>
+      <a href="#services" data-key="nav-services">Services</a>
+      <a href="#skills" data-key="nav-skills">Skills</a>
+      <a href="#projects" data-key="nav-projects">Projects</a>
+      <a href="#contact" data-key="nav-contact">Contact</a>
+    </nav>
+    
+    <!-- Перемикач мов -->
+    <div class="lang-switcher">
+      <button class="lang-btn" id="langBtn">🌐 EN</button>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-option" data-lang="en">English</button>
+        <button class="lang-option" data-lang="uk">Українська</button>
+        <button class="lang-option" data-lang="ru">Русский</button>
+      </div>
+    </div>
+  </div>
 </header>
 
 <section class="hero">
   <div class="hero-box" id="parallaxBox">
     <div class="hero-left">
-      <div class="hero-kicker">IT STEP · 1 курс · веброзробка</div>
-      <h2>Вікторія Літовська</h2>
-      <div class="hero-tag">Майбутня Web-розробниця та студентка ВСП «Фаховий коледж ракетно-космічного машинобудування ДНУ»</div>
-      <p class="hero-intro">Я створюю перші сайти, вивчаю програмування та поступово перетворюю ідеї на реальні проєкти. Для мене кожна робота — це спосіб навчитися новому й зробити щось корисне для людей.</p>
+      <div class="hero-kicker" data-key="hero-kicker">Front-End Developer · Web Development</div>
+      <h2>Victoria Litovska</h2>
+      <div class="hero-tag" data-key="hero-tag">Creating modern, responsive websites with HTML, CSS and JavaScript</div>
+      <p class="hero-intro" data-key="hero-intro">I build responsive websites and web interfaces using HTML, CSS, and JavaScript. I enjoy transforming ideas into functional, visually appealing projects while continuously improving my development skills.</p>
       <div class="tech-badge">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>Python</span>
-        <span>C++</span>
+        <span>HTML5</span>
+        <span>CSS3</span>
         <span>JavaScript</span>
+        <span>Git / GitHub</span>
+        <span>Responsive Design</span>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <strong>15</strong>
-          <span>років і вже власні вебпроєкти</span>
+          <strong>8+</strong>
+          <span data-key="stat-1">Completed Projects</span>
         </div>
         <div class="hero-stat">
-          <strong>7+</strong>
-          <span>робіт у портфоліо</span>
+          <strong>HTML/CSS</strong>
+          <span data-key="stat-2">Responsive Development</span>
         </div>
         <div class="hero-stat">
-          <strong>4</strong>
-          <span>напрями, які зараз вивчаю</span>
+          <strong>24/7</strong>
+          <span data-key="stat-3">Learning & Improving</span>
         </div>
       </div>
       <div class="hero-buttons">
+        <a href="Victoria_CV.pdf" target="_blank" class="btn-cv" data-key="btn-resume">📄 Resume</a>
         <a href="https://github.com/vikalitovskay5-netizen" target="_blank" rel="noopener">🐙 GitHub</a>
-        <a href="#projects">Переглянути проєкти</a>
+        <a href="#projects" data-key="btn-projects">View Projects</a>
       </div>
     </div>
     <div class="hero-right">
       <div class="portrait-card">
-        <img src="фотка.jpg" alt="Віка" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f7edfc/c28bc9?text=Vika'">
-        <div class="portrait-note">Люблю, коли сайт не просто працює, а виглядає зручно, охайно і має власний характер.</div>
+        <img src="фотка.jpg" alt="Victoria" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f7edfc/c28bc9?text=Vika'">
+        <div class="portrait-note" data-key="portrait-note">I love it when a website doesn't just work, but feels seamless, clean, and carries its own unique character.</div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="about" class="fade">
-  <h2>🧸 Трохи про мене</h2>
+  <h2 data-key="title-about">🧸 About Me</h2>
   <div class="about-layout">
     <div class="about-text">
-      <p>Мене звати Віка, мені 15 років. Я навчаюся в IT STEP та захоплююся веброзробкою. Мене надихає можливість створювати щось власне, а програмування показало, наскільки цікаво бачити, як ідея поступово перетворюється на реальний проєкт.</p>
-      <p>Найбільше мені подобається те, що технології дозволяють не лише втілювати власні задуми, а й створювати щось корисне для інших людей. Кожен новий проєкт для мене — це можливість покращити навички та спробувати реалізувати чергову ідею.</p>
+      <p data-key="about-p1">My name is Victoria. I am passionate about web development, design, and creating websites that combine functionality with clean and modern design.</p>
+      <p data-key="about-p2">I enjoy turning ideas into real projects and constantly improving my technical skills. Every new project helps me learn something new and become a better developer.</p>
     </div>
     <div class="quick-facts">
       <div class="fact-card">
-        <strong>Навчання</strong>
-        <span>Закінчую перший курс IT STEP і продовжую розвиватися в IT.</span>
+        <strong data-key="fact-edu-t">Focus</strong>
+        <span data-key="fact-edu-d">Building practical web projects and continuously improving front-end development skills.</span>
       </div>
       <div class="fact-card">
-        <strong>Стиль роботи</strong>
-        <span>Поєдную акуратну верстку, кольори, деталі та зручність для користувача.</span>
+        <strong data-key="fact-style-t">Work Style</strong>
+        <span data-key="fact-style-d">Focused on clean layouts, responsive design, and user-friendly interfaces.</span>
       </div>
       <div class="fact-card">
-        <strong>Мета</strong>
-        <span>Створювати корисні цифрові продукти та впевнено рости як розробниця.</span>
+        <strong data-key="fact-goal-t">Goal</strong>
+        <span data-key="fact-goal-d">To create useful digital products and grow as a professional developer.</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="fade">
+  <h2 data-key="title-services">💼 Services</h2>
+  <div class="focus-grid">
+    <div class="focus-card">
+      <h3 data-key="srv-1-t">Landing Pages</h3>
+      <p data-key="srv-1-d">Creation of modern, high-converting, and responsive landing pages tailored to match your specific brand identity and business objectives.</p>
+    </div>
+    <div class="focus-card">
+      <h3 data-key="srv-4-t">Responsive Website Development</h3>
+      <p data-key="srv-4-d">Building responsive multi-page websites that work smoothly across desktop, tablet, and mobile devices.</p>
+    </div>
+    <div class="focus-card">
+      <h3 data-key="srv-2-t">UI Style & Refinement</h3>
+      <p data-key="srv-2-d">Polishing existing web templates, restructuring layouts, improving styling details, and fixing responsive visual bugs.</p>
+    </div>
+    <div class="focus-card">
+      <h3 data-key="srv-3-t">Figma to HTML/CSS</h3>
+      <p data-key="srv-3-d">Accurate, clean translation of static mockups into semantic and well-structured code that looks beautiful on any device.</p>
     </div>
   </div>
 </section>
 
 <section class="fade">
-  <h2>🚀 Мій шлях в IT</h2>
+  <h2 data-key="title-journey">🚀 Development Journey</h2>
   <div class="journey-card">
-    <p>Веброзробка стала для мене особливо цікавою, бо вона поєднує логіку, дизайн і свободу для самовираження. Хороший проєкт має бути не лише функціональним, а й зручним та приємним для користувача.</p>
+    <p data-key="journey-intro">Web development is fascinating because it perfectly balances logic, visual design, and infinite room for self-expression.</p>
   </div>
   <div class="timeline">
     <div class="timeline-item">
       <span class="step">1</span>
-      <h3>Перші сторінки</h3>
-      <p>Почала з HTML і CSS, навчилася будувати структуру сайту, працювати з кольорами, блоками та адаптивністю.</p>
+      <h3 data-key="tm-1-t">Core Foundations</h3>
+      <p data-key="tm-1-d">Mastered advanced layout structures with HTML5 and CSS3, keeping blocks semantic and highly adaptable.</p>
     </div>
     <div class="timeline-item">
       <span class="step">2</span>
-      <h3>Більше практики</h3>
-      <p>Створюю навчальні роботи, експериментую з дизайном і поступово додаю інтерактивність до інтерфейсів.</p>
+      <h3 data-key="tm-2-t">Interactive Interfaces</h3>
+      <p data-key="tm-2-d">Consistently practicing on real layout concepts, experimenting with modern design styles, and improving user experiences.</p>
     </div>
     <div class="timeline-item">
       <span class="step">3</span>
-      <h3>Наступний рівень</h3>
-      <p>Вивчаю Python і C++, розвиваю алгоритмічне мислення та планую робити складніші цифрові продукти.</p>
+      <h3 data-key="tm-3-t">Expanding Logic</h3>
+      <p data-key="tm-3-d">Learning programming principles through JavaScript, Python, and C++ to scale code architecture and handle complex tasks.</p>
     </div>
   </div>
 </section>
 
 <section id="skills" class="fade">
-  <h2>💎 Навички та інструменти</h2>
+  <h2 data-key="title-skills">💎 Skills & Tools</h2>
   <div class="skills-grid">
     <div class="skill-item">HTML5 / CSS3</div>
-    <div class="skill-item">Python (основи)</div>
-    <div class="skill-item">C++ (алгоритми)</div>
-    <div class="skill-item">Адаптивна верстка</div>
+    <div class="skill-item">JavaScript</div>
+    <div class="skill-item">Responsive Design</div>
     <div class="skill-item">Git / GitHub</div>
-    <div class="skill-item">Figma basics</div>
+    <div class="skill-item">Python Basics</div>
+    <div class="skill-item">C++ Basics</div>
+    <div class="skill-item">Figma</div>
+    <div class="skill-item">Canva</div>
   </div>
-  <div class="focus-grid">
+  <div class="focus-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
     <div class="focus-card">
-      <h3>Інтерфейси</h3>
-      <p>Люблю робити сторінки зрозумілими, красивими й такими, де кожен елемент має своє місце.</p>
+      <h3 data-key="sk-focus-1-t">Interfaces</h3>
+      <p data-key="sk-focus-1-d">Designing seamless digital layouts where elements are balanced, accessible, and structured correctly.</p>
     </div>
     <div class="focus-card">
-      <h3>Код</h3>
-      <p>Поступово вдосконалюю структуру HTML, стилі CSS і логіку, щоб проєкти були акуратнішими.</p>
+      <h3 data-key="sk-focus-2-t">Clean Code</h3>
+      <p data-key="sk-focus-2-d">Keeping markup clean and CSS organized to make sure the project loads fast and is easy to maintain.</p>
     </div>
     <div class="focus-card">
-      <h3>Розвиток</h3>
-      <p>Кожна нова робота допомагає перевірити ідеї, знайти помилки й зробити наступний сайт кращим.</p>
+      <h3 data-key="sk-focus-3-t">Growth Mindset</h3>
+      <p data-key="sk-focus-3-d">Approaching every project as an opportunity to implement pixel-perfect adjustments and test new visual trends.</p>
     </div>
   </div>
 </section>
 
-<!-- НОВА КАРУСЕЛЬ ЗІ СКРІНШОТАМИ ПРОЄКТІВ -->
-<!-- Секція ПРОЄКТИ з реальними зображеннями -->
 <section id="projects" class="fade">
-  <h2>📁 Мої проєкти</h2>
+  <h2 data-key="title-projects">📁 Featured Projects</h2>
   <div class="carousel" id="projectsCarousel">
     
-    <!-- ПРОЄКТ 1: Perfect Hair -->
+    <!-- PROJECT 1: Perfect Hair -->
     <a class="project-card" href="https://zxckuekye.github.io/perfekthairr/" target="_blank" rel="noopener">
       <div class="project-screenshot">
         <img src="Снимок экрана 2026-06-04 223445.png" alt="Perfect Hair landing page">
       </div>
       <h3>💇🏻‍♀️ Perfect Hair</h3>
-      <div class="project-desc">Сайт у beauty-тематиці з візуальним акцентом на стиль, послуги та приємну подачу.</div>
+      <div class="project-desc" data-key="proj-1-d">A beautiful landing page designed for the beauty industry with a high focus on typography and imagery presentation.</div>
       <div class="project-tech"><span>HTML</span><span>CSS</span><span>Landing</span></div>
-      <div class="project-link">Відкрити проєкт →</div>
+      <div class="project-link" data-key="proj-open">Open Project →</div>
     </a>
 
-    <!-- ПРОЄКТ 2: Архів -->
+    <!-- PROJECT 2: Archive -->
     <a class="project-card" href="https://vikalitovskay5-netizen.github.io/archiv/" target="_blank" rel="noopener">
       <div class="project-screenshot">
-        <img src="Снимок экрана 2026-06-04 223532.png" alt="Архів проєкт">
+        <img src="Снимок экрана 2026-06-04 223532.png" alt="Archive Project">
       </div>
-      <h3>🗂️ Архів</h3>
-      <div class="project-desc">Навчальний проєкт з організованою структурою сторінки та практикою верстки.</div>
+      <h3>🗂️ Archive</h3>
+      <div class="project-desc" data-key="proj-2-d">Structured directory interface project showcasing organized text layouts and multi-column alignment practices.</div>
       <div class="project-tech"><span>HTML</span><span>CSS</span><span>Practice</span></div>
-      <div class="project-link">Відкрити проєкт →</div>
+      <div class="project-link" data-key="proj-open">Open Project →</div>
     </a>
 
-    <!-- ПРОЄКТ 3: Homework 8 -->
+    <!-- PROJECT 3: Limp Bizkit -->
     <a class="project-card" href="https://vikalitovskay5-netizen.github.io/homework8/" target="_blank" rel="noopener">
       <div class="project-screenshot">
-        <img src="Снимок экрана 2026-06-04 223543.png" alt="Homework 8 проєкт">
+        <img src="Снимок экрана 2026-06-04 223543.png" alt="Limp Bizkit Project">
       </div>
       <h3>🎧 Limp Bizkit</h3>
-      <div class="project-desc">Одна з останніх практичних робіт, де відпрацьовано адаптивність сайту.</div>
+      <div class="project-desc" data-key="proj-3-d">A dark-themed media page tailored to display complex asset grids with seamless fluid responsiveness.</div>
       <div class="project-tech"><span>HTML</span><span>CSS</span><span>Layout</span></div>
-      <div class="project-link">Відкрити проєкт →</div>
+      <div class="project-link" data-key="proj-open">Open Project →</div>
     </a>
 
-    <!-- ПРОЄКТ 4: Homework 4 -->
+    <!-- PROJECT 4: Registration -->
     <a class="project-card" href="https://vikalitovskay5-netizen.github.io/homework4/" target="_blank" rel="noopener">
       <div class="project-screenshot">
-        <img src="Снимок экрана 2026-06-04 223553.png" alt="Homework 4">
+        <img src="Снимок экрана 2026-06-04 223553.png" alt="Registration Form">
       </div>
-      <h3>🌸 Реєстрація </h3>
-      <div class="project-desc">Робота для практики базової верстки, стилізації та акуратного розташування контенту.</div>
+      <h3>🌸 Form UI</h3>
+      <div class="project-desc" data-key="proj-4-d">An elegant interface layout practicing component styling, precise form input fields, and custom buttons.</div>
       <div class="project-tech"><span>HTML</span><span>CSS</span></div>
-      <div class="project-link">Відкрити проєкт →</div>
+      <div class="project-link" data-key="proj-open">Open Project →</div>
     </a>
 
-    <!-- ПРОЄКТ 5: Course Work -->
+    <!-- PROJECT 5: School Site -->
     <a class="project-card" href="https://vikalitovskay5-netizen.github.io/-cwork/" target="_blank" rel="noopener">
       <div class="project-screenshot">
-        <img src="Снимок экрана 2026-06-04 223605.png" alt="Course work проєкт">
+        <img src="Снимок экрана 2026-06-04 223605.png" alt="School website project">
       </div>
-      <h3>💻 Сайт школи</h3>
-      <div class="project-desc">Проєктна робота, де можна показати вміння збирати сторінку з кількох змістових частин.</div>
+      <h3>💻 Educational Hub</h3>
+      <div class="project-desc" data-key="proj-5-d">A multi-section project assembling various interactive sections into one consistent corporate design layout.</div>
       <div class="project-tech"><span>HTML</span><span>CSS</span><span>Project</span></div>
-      <div class="project-link">Відкрити проєкт →</div>
+      <div class="project-link" data-key="proj-open">Open Project →</div>
     </a>
 
-    <!-- ПРОЄКТ 6: Homework 7 -->
+    <!-- PROJECT 6: Figma Design -->
     <a class="project-card" href="https://vikalitovskay5-netizen.github.io/homework7/" target="_blank" rel="noopener">
       <div class="project-screenshot">
-        <img src="Снимок экрана 2026-06-04 223621.png" alt="Homework 7">
+        <img src="Снимок экрана 2026-06-04 223621.png" alt="Figma code project">
       </div>
-      <h3>🎨 Дизайн з Figma</h3>
-      <div class="project-desc">Практика роботи з готовими дизайном та компонентами.</div>
+      <h3>🎨 Figma to Code</h3>
+      <div class="project-desc" data-key="proj-6-d">A practical exercise working directly from mockups to recreate clean, identical code structures.</div>
       <div class="project-tech"><span>HTML</span><span>CSS</span><span>UI</span></div>
-      <div class="project-link">Відкрити проєкт →</div>
+      <div class="project-link" data-key="proj-open">Open Project →</div>
     </a>
 
-    <!-- ПРОЄКТ 7: Homework 3 -->
+    <!-- PROJECT 7: Vitalis -->
     <a class="project-card" href="https://vikalitovskay5-netizen.github.io/homework3/" target="_blank" rel="noopener">
       <div class="project-screenshot">
-        <img src="Снимок экрана 2026-06-04 223628.png" alt="Homework 3">
+        <img src="Снимок экрана 2026-06-04 223628.png" alt="Vitalis website">
       </div>
       <h3>🍃 Vitalis</h3>
-      <div class="project-desc">Рання навчальна робота, яка показує перші кроки у створенні вебсторінок.</div>
+      <div class="project-desc" data-key="proj-7-d">An early development project practicing text formatting, asset scaling, and semantic layout properties.</div>
       <div class="project-tech"><span>HTML</span><span>CSS</span><span>Start</span></div>
-      <div class="project-link">Відкрити проєкт →</div>
+      <div class="project-link" data-key="proj-open">Open Project →</div>
     </a>
   </div>
-  <p style="text-align:center; margin-top: 12px; font-size:0.8rem; color:#aa8ac2;">🎡 гортай → щоб побачити всі проєкти</p>
+  <p style="text-align:center; margin-top: 12px; font-size:0.8rem; color:#aa8ac2;" data-key="carousel-scroll">🎡 swipe / drag left or right → to see all projects</p>
 </section>
 
 <section id="contact" class="fade">
-  <h2>📬 Контакти та спілкування</h2>
+  <h2 data-key="title-contact">📬 Contact & Collaboration</h2>
   <div class="contact-block">
-    <p>📩 Завжди відкрита до цікавих ідей, навчальних проєктів і розмов про веброзробку, дизайн та IT.</p>
+    <p data-key="contact-intro">📩 Always open to discussing new web development projects, UI design implementations, or front-end tasks.</p>
     <div class="contact-links">
       <a href="https://github.com/vikalitovskay5-netizen" target="_blank" rel="noopener">🐙 GitHub</a>
       <a href="https://t.me/kuekye" target="_blank" rel="noopener">📱 Telegram</a>
@@ -1021,13 +1146,192 @@
 </section>
 
 <footer>
-  <p>© 2026 Вікторія — натхненна бузковими градієнтами та кодом</p>
+  <p id="footerText">© 2026 Victoria — Inspired by lavender gradients and clean code</p>
 </footer>
 
 <script>
-  // fade анімація
-  const faders = document.querySelectorAll('.fade');
+  // ОБ'ЄКТ З ПЕРЕКЛАДАМИ
+  const translations = {
+    en: {
+      "nav-about": "About", "nav-services": "Services", "nav-skills": "Skills", "nav-projects": "Projects", "nav-contact": "Contact",
+      "hero-kicker": "Front-End Developer · Web Development",
+      "hero-tag": "Creating modern, responsive websites with HTML, CSS and JavaScript",
+      "hero-intro": "I build responsive websites and web interfaces using HTML, CSS, and JavaScript. I enjoy transforming ideas into functional, visually appealing projects while continuously improving my development skills.",
+      "stat-1": "Completed Projects", "stat-2": "Responsive Development", "stat-3": "Learning & Improving",
+      "btn-resume": "📄 Resume", "btn-projects": "View Projects",
+      "portrait-note": "I love it when a website doesn't just work, but feels seamless, clean, and carries its own unique character.",
+      "title-about": "🧸 About Me",
+      "about-p1": "My name is Victoria. I am passionate about web development, design, and creating websites that combine functionality with clean and modern design.",
+      "about-p2": "I enjoy turning ideas into real projects and constantly improving my technical skills. Every new project helps me learn something new and become a better developer.",
+      "fact-edu-t": "Focus", "fact-edu-d": "Building practical web projects and continuously improving front-end development skills.",
+      "fact-style-t": "Work Style", "fact-style-d": "Focused on clean layouts, responsive design, and user-friendly interfaces.",
+      "fact-goal-t": "Goal", "fact-goal-d": "To create useful digital products and grow as a professional developer.",
+      "title-services": "💼 Services",
+      "srv-1-t": "Landing Pages", "srv-1-d": "Creation of modern, high-converting, and responsive landing pages tailored to match your specific brand identity and business objectives.",
+      "srv-4-t": "Responsive Website Development", "srv-4-d": "Building responsive multi-page websites that work smoothly across desktop, tablet, and mobile devices.",
+      "srv-2-t": "UI Style & Refinement", "srv-2-d": "Polishing existing web templates, restructuring layouts, improving styling details, and fixing responsive visual bugs.",
+      "srv-3-t": "Figma to HTML/CSS", "srv-3-d": "Accurate, clean translation of static mockups into semantic and well-structured code that looks beautiful on any device.",
+      "title-journey": "🚀 Development Journey",
+      "journey-intro": "Web development is fascinating because it perfectly balances logic, visual design, and infinite room for self-expression.",
+      "tm-1-t": "Core Foundations", "tm-1-d": "Mastered advanced layout structures with HTML5 and CSS3, keeping blocks semantic and highly adaptable.",
+      "tm-2-t": "Interactive Interfaces", "tm-2-d": "Consistently practicing on real layout concepts, experimenting with modern design styles, and improving user experiences.",
+      "tm-3-t": "Expanding Logic", "tm-3-d": "Learning programming principles through JavaScript, Python, and C++ to scale code architecture and handle complex tasks.",
+      "title-skills": "💎 Skills & Tools",
+      "sk-focus-1-t": "Interfaces", "sk-focus-1-d": "Designing seamless digital layouts where elements are balanced, accessible, and structured correctly.",
+      "sk-focus-2-t": "Clean Code", "sk-focus-2-d": "Keeping markup clean and CSS organized to make sure the project loads fast and is easy to maintain.",
+      "sk-focus-3-t": "Growth Mindset", "sk-focus-3-d": "Approaching every project as an opportunity to implement pixel-perfect adjustments and test new visual trends.",
+      "title-projects": "📁 Featured Projects",
+      "proj-1-d": "A beautiful landing page designed for the beauty industry with a high focus on typography and imagery presentation.",
+      "proj-2-d": "Structured directory interface project showcasing organized text layouts and multi-column alignment practices.",
+      "proj-3-d": "A dark-themed media page tailored to display complex asset grids with seamless fluid responsiveness.",
+      "proj-4-d": "An elegant interface layout practicing component styling, precise form input fields, and custom buttons.",
+      "proj-5-d": "A multi-section project assembling various interactive sections into one consistent corporate design layout.",
+      "proj-6-d": "A practical exercise working directly from mockups to recreate clean, identical code structures.",
+      "proj-7-d": "An early development project practicing text formatting, asset scaling, and semantic layout properties.",
+      "proj-open": "Open Project →", "carousel-scroll": "🎡 swipe / drag left or right → to see all projects",
+      "title-contact": "📬 Contact & Collaboration",
+      "contact-intro": "📩 Always open to discussing new web development projects, UI design implementations, or front-end tasks.",
+      "footer": "© 2026 Victoria — Inspired by lavender gradients and clean code"
+    },
+    uk: {
+      "nav-about": "Про мене", "nav-services": "Послуги", "nav-skills": "Навички", "nav-projects": "Проєкти", "nav-contact": "Контакти",
+      "hero-kicker": "Front-End розробниця · Веброзробка",
+      "hero-tag": "Створюю сучасні, адаптивні сайти на HTML, CSS та JavaScript",
+      "hero-intro": "Я розробляю адаптивні вебсайти та користувацькі інтерфейси. Мені подобається перетворювати ідеї на функціональні, візуально привабливі проєкти, постійно вдосконалюючи свої навички розробки.",
+      "stat-1": "Завершених проєктів", "stat-2": "Адаптивна верстка", "stat-3": "Навчання та розвиток",
+      "btn-resume": "📄 Резюме", "btn-projects": "Переглянути проєкти",
+      "portrait-note": "Люблю, коли сайт не просто працює, а виглядає зручно, охайно і має власний характер.",
+      "title-about": "🧸 Трохи про мене",
+      "about-p1": "Мене звати Віка. Я захоплююся веброзробкою, дизайном та створення сайтів, які поєднують у собі функціональність із чистим та сучасним оформленням.",
+      "about-p2": "Мене подобається втілювати ідеї в реальні проєкти та постійно покращувати технічні навички. Кожна нова робота допомагає мені дізнатися щось нове та рости як розробниця.",
+      "fact-edu-t": "Напрямок", "fact-edu-d": "Створення практичних веб-проєктів та постійне вдосконалення навичок розробки інтерфейсів.",
+      "fact-style-t": "Стиль роботи", "fact-style-d": "Акуратні макети, адаптивний дизайн та зручні інтерфейси.",
+      "fact-goal-t": "Мета", "fact-goal-d": "Створювати корисні цифрові продукти та впевнено рости як професіонал.",
+      "title-services": "💼 Послуги",
+      "srv-1-t": "Landing Pages", "srv-1-d": "Створення сучасних адаптивних односторінкових сайтів, розроблених під завдання вашого бізнесу чи особистого бренду.",
+      "srv-4-t": "Розробка адаптивних вебсайтів", "srv-4-d": "Створення адаптивних багатосторінкових сайтів, які стабільно та плавно працюють на десктопах, планшетах та мобільних пристроях.",
+      "srv-2-t": "Рефакторинг стилів", "srv-2-d": "Поліпшення поточних шаблонів, виправлення помилок адаптивності, оновлення візуального стилю та структури.",
+      "srv-3-t": "Верстка з Figma", "srv-3-d": "Точне та чисте перенесення графічних макетів у семантичний код, який чудово виглядає на будь-яких пристроях.",
+      "title-journey": "🚀 Мій шлях в IT",
+      "journey-intro": "Веброзробка приваблює мене тим, що вона ідеально збалансовує логіку коду, візуальний дизайн та свободу для творчості.",
+      "tm-1-t": "Базові основи", "tm-1-d": "Опанувала побудову адаптивних та семантичних структур за допомогою HTML5 та CSS3.",
+      "tm-2-t": "Інтерактивність", "tm-2-d": "Постійно практикуюся на реальних концептах інтерфейсів, експериментуючи з сучасними стилями та UX.",
+      "tm-3-t": "Логіка та алгоритми", "tm-3-d": "Вивчаю принципи програмування на JavaScript, Python та C++ для реалізації складніших завдань.",
+      "title-skills": "💎 Навички та інструменти",
+      "sk-focus-1-t": "Інтерфейси", "sk-focus-1-d": "Створюю зрозумілі цифрові макети, де кожен елемент збалансований та знаходиться на своєму місці.",
+      "sk-focus-2-t": "Акуратний код", "sk-focus-2-d": "Дотримуюся чистоти в розмітці та стилях для швидкого завантаження сайту та зручної підтримки коду.",
+      "sk-focus-3-t": "Постійний розвиток", "sk-focus-3-d": "Кожен новий проєкт розглядаю як можливість зробити інтерфейс pixel-perfect та застосувати свіжі тренди.",
+      "title-projects": "📁 Мої проєкти",
+      "proj-1-d": "Сайт у beauty-тематиці з візуальним акцентом на типографіку, послуги та преміальну подачу контенту.",
+      "proj-2-d": "Проєкт каталогу з чіткою структурою сторінки та практикою вирівнювання багатоколонкових blocks.",
+      "proj-3-d": "Музична сторінка в темних тонах з реалізацією адаптивної сітки елементів.",
+      "proj-4-d": "Елегантна форма реєстрації з практикою кастомізації полів введення, кнопок та інтерфейсних блоків.",
+      "proj-5-d": "Багатосторінковий концепт шкільного хабу, що об'єднує різні контентні блоки в єдиний дизайн.",
+      "proj-6-d": "Практична робота з копіювання інтерфейсу безпосередньо з графічного макета Figma у код.",
+      "proj-7-d": "Рання навчальна робота для відпрацювання базового форматування тексту та властивостей позиціонування.",
+      "proj-open": "Відкрити проєкт →", "carousel-scroll": "🎡 гортай → щоб побачити всі проєкти",
+      "title-contact": "📬 Контакти та спілкування",
+      "contact-intro": "📩 Завжди відкрита до обговорення нових веброзробок, верстки макетів або завдань з фронтенду.",
+      "footer": "© 2026 Вікторія — натхненна бузковими градієнтами та кодом"
+    },
+    ru: {
+      "nav-about": "Обо мне", "nav-services": "Услуги", "nav-skills": "Навыки", "nav-projects": "Проекты", "nav-contact": "Контакты",
+      "hero-kicker": "Front-End разработчица · Веб-разработка",
+      "hero-tag": "Создаю современные, адаптивные sites на HTML, CSS и JavaScript",
+      "hero-intro": "Я разрабатываю адаптивные веб-сайты и пользовательские интерфейсы. Мне нравится превращать идеи в функциональные, визуально привлекательные проекты, постоянно улучшая свои навыки разработки.",
+      "stat-1": "Завершенных проектов", "stat-2": "Адаптивная верстка", "stat-3": "Обучение и развитие",
+      "btn-resume": "📄 Резюме", "btn-projects": "Смотреть проекты",
+      "portrait-note": "Люблю, когда сайт не просто работает, а выглядит удобно, аккуратно и обладает своим характером.",
+      "title-about": "🧸 Обо мне",
+      "about-p1": "Меня зовут Вика. Я увлекаюсь веб-разработкой, дизайном и созданием сайтов, сочетающих в себе функциональность с чистым и современным оформлением.",
+      "about-p2": "Мне нравится воплощать идеи в реальные проекты и постоянно улучшать технические навыки. Каждая новая работа помогает мне узнать что-то новое и расти как разработчица.",
+      "fact-edu-t": "Направление", "fact-edu-d": "Создание практических веб-проектов и постоянное совершенствование навыков фронтенд-разработки.",
+      "fact-style-t": "Стиль работы", "fact-style-d": "Аккуратные макеты, адаптивный дизайн и удобные интерфейсы.",
+      "fact-goal-t": "Цель", "fact-goal-d": "Создавать полезные цифровые продукты и уверенно расти как профессионал.",
+      "title-services": "💼 Услуги",
+      "srv-1-t": "Landing Pages", "srv-1-d": "Создание современных адаптивных одностраничных сайтов, разработанных под задачи вашего бизнеса или личного бренда.",
+      "srv-4-t": "Разработка адаптивных сайтов", "srv-4-d": "Создание отзывчивых многостраничных веб-сайтов, стабильно и плавно работающих на десктопах, планшетах и мобильных устройствах.",
+      "srv-2-t": "Рефакторинг стилей", "srv-2-d": "Улучшение текущих шаблонов, исправление ошибок адаптивности, обновление визуального стиля и структуры макета.",
+      "srv-3-t": "Верстка из Figma", "srv-3-d": "Точный и чистый перенос графических макетов в семантический код, который отлично выглядит на любых устройствах.",
+      "title-journey": "🚀 Мой путь в IT",
+      "journey-intro": "Веб-разработка привлекает меня тем, что она идеально балансирует логику кода, визуальный дизайн и свободу для творчества.",
+      "tm-1-t": "Базовые основы", "tm-1-d": "Освоила построение адаптивных и семантических структур с помощью HTML5 и CSS3.",
+      "tm-2-t": "Интерактивность", "tm-2-d": "Постоянно практикуюсь на реальных концептах интерфейсов, экспериментируя с современными стилями и UX.",
+      "tm-3-t": "Логика и алгоритмы", "tm-3-d": "Изучаю принципы программирования на JavaScript, Python и C++ для реализации более сложных задач.",
+      "title-skills": "💎 Навыки и инструменты",
+      "sk-focus-1-t": "Интерфейсы", "sk-focus-1-d": "Создаю понятные цифровые макеты, где каждый элемент сбалансирован и находится на своем месте.",
+      "sk-focus-2-t": "Чистый код", "sk-focus-2-d": "Придерживаюсь чистоты в разметке и стилях для быстрой загрузки сайта и удобной поддержки кода.",
+      "sk-focus-3-t": "Постоянный рост", "sk-focus-3-d": "Каждый новый проект рассматриваю как возможность сделать интерфейс pixel-perfect и применить свежие тренды.",
+      "title-projects": "📁 Мои проекты",
+      "proj-1-d": "Сайт в beauty-тематике с визуальным акцентом на типографику, услуги и премиальную подачу контента.",
+      "proj-2-d": "Проект каталога с четкой структурой страницы и практикой выравнивания многоколоночных блоков.",
+      "proj-3-d": "Музыкальная страница в темных тонах с реализацией адаптивной сетки элементов.",
+      "proj-4-d": "Элегантная форма регистрации с практикой кастомизации полей ввода, кнопок и интерфейсных блоков.",
+      "proj-5-d": "Многостраничный концепт школьного хаба, объединяющий разные контентные блоки в единый дизайн.",
+      "proj-6-d": "Практическая работа по копированию интерфейса напрямую из графического макета Figma в код.",
+      "proj-7-d": "Ранняя учебная работа для отработки базового форматирования текста и свойств позиционирования.",
+      "proj-open": "Открыть проект →", "carousel-scroll": "🎡 листай → чтобы увидеть все проекты",
+      "title-contact": "📬 Contacts & Общение",
+      "contact-intro": "📩 Всегда открыта к обсуждению новых веб-разработок, верстки макетов или задач по фронтенду.",
+      "footer": "© 2026 Виктория — вдохновлена сиреневыми градиентами и кодом"
+    }
+  };
 
+  // ЛОГІКА ЗМІНИ МОВИ
+  const langBtn = document.getElementById('langBtn');
+  const langDropdown = document.getElementById('langDropdown');
+  const langOptions = document.querySelectorAll('.lang-option');
+
+  // Відкрити/закрити дропдаун
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langDropdown.classList.toggle('open');
+  });
+
+  // Закрити при кліку в будь-яке інше місце
+  document.addEventListener('click', () => {
+    langDropdown.classList.remove('open');
+  });
+
+  // Функція зміни мови
+  function changeLanguage(lang) {
+    // Оновлюємо текст головної кнопки
+    langBtn.textContent = `🌐 ${lang.toUpperCase()}`;
+    
+    // Перебираємо елементи з атрибутом data-key
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // Окреме оновлення тексту футера
+    const footerText = document.getElementById('footerText');
+    if (footerText && translations[lang]['footer']) {
+      footerText.textContent = translations[lang]['footer'];
+    }
+
+    // Зберігаємо вибір користувача в браузері
+    localStorage.setItem('preferredLang', lang);
+  }
+
+  // Обробник кліку по мовах
+  langOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      const selectedLang = this.getAttribute('data-lang');
+      changeLanguage(selectedLang);
+    });
+  });
+
+  // Завантаження збереженої мови (або за замовчуванням англійська)
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    changeLanguage(savedLang);
+  });
+
+  /* ---- РЕШТА СКРИПТІВ ---- */
+  const faders = document.querySelectorAll('.fade');
   function handleFade() {
     faders.forEach((el, idx) => {
       const rect = el.getBoundingClientRect();
@@ -1037,12 +1341,10 @@
       }
     });
   }
-
   window.addEventListener('scroll', handleFade);
   window.addEventListener('resize', handleFade);
   handleFade();
 
-  // динамічний спотлайт
   const spotlight = document.getElementById('spotlight');
   document.addEventListener('mousemove', (e) => {
     const x = e.clientX;
@@ -1055,7 +1357,6 @@
     }
   });
 
-  // паралакс hero
   const heroBox = document.querySelector('.hero-box');
   if (heroBox) {
     window.addEventListener('scroll', () => {
@@ -1068,28 +1369,19 @@
     });
   }
 
-  // карусель - перетягування мишкою
   const carousel = document.querySelector('.carousel');
   if (carousel) {
     let isDown = false;
     let startX;
     let scrollLeft;
-
     carousel.addEventListener('mousedown', (e) => {
       isDown = true;
       carousel.style.cursor = 'grabbing';
       startX = e.pageX - carousel.offsetLeft;
       scrollLeft = carousel.scrollLeft;
     });
-
-    carousel.addEventListener('mouseleave', () => {
-      isDown = false;
-      carousel.style.cursor = 'grab';
-    });
-    carousel.addEventListener('mouseup', () => {
-      isDown = false;
-      carousel.style.cursor = 'grab';
-    });
+    carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; });
+    carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; });
     carousel.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
@@ -1100,7 +1392,6 @@
     carousel.style.cursor = 'grab';
   }
 
-  // плавний скрол до якорів
   document.querySelectorAll('nav a, .hero-buttons a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const hash = this.getAttribute('href');
